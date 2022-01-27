@@ -4,7 +4,7 @@ const Letter = ({ letter }) => {
   return (
     <div
       className="tuorp-letter rounded d-flex justify-content-center"
-      style={{ width: "4rem", height: "4rem" }}
+      style={{ width: "3.5rem", height: "3.5rem" }}
     >
       {letter}
     </div>
