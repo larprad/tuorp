@@ -1,18 +1,25 @@
-import { useGridContext } from "../../state/GridContext";
-import { settings } from "../../config/ini";
+import { useGrid } from "../../hook/useGrid";
+
 import "./key.scss";
 
 const Key = ({ keyCaps }) => {
-  const { grid, setGrid, activeRow, activeCol, setActiveCol } =
-    useGridContext();
+  const { deleteKey, valideKey, writeKey } = useGrid();
+
   const handleKey = () => {
-    if (activeCol < settings.wordLength) grid[activeRow][activeCol] = keyCaps;
-    setGrid([...grid]);
-    setActiveCol(activeCol + 1);
+    if (keyCaps === "ANNULER") {
+      deleteKey();
+      return;
+    }
+    if (keyCaps === "VALIDER") {
+      valideKey();
+      return;
+    }
+    writeKey(keyCaps);
   };
+
   return (
     <div className="tuorp-key p-3 rounded" role="button" onClick={handleKey}>
-      {keyCaps}
+      <h6 className="m-0 align-middle">{keyCaps}</h6>
     </div>
   );
 };
