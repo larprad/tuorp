@@ -1,5 +1,4 @@
 import { useGrid } from "../../hook/useGrid";
-
 import "./key.scss";
 
 const Key = ({ keyCaps }) => {
