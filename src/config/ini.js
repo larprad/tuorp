@@ -12,3 +12,7 @@ export const initKeyboard = [
   ["Q", "S", "D", "F", "G", "H", "J", "K", "L", "M"],
   ["VALIDER", "W", "X", "C", "V", "B", "N", "ANNULER"],
 ];
+
+export const settings = {
+  wordLength: 5,
+};
