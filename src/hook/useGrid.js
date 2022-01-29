@@ -16,7 +16,6 @@ export const useGrid = () => {
 
   const valideKey = () => {
     if (activeCol === settings.wordLength) {
-      console.log("validate");
       setActiveRow(activeRow + 1);
       setActiveCol(0);
     }

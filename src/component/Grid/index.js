@@ -9,7 +9,7 @@ const Grid = () => {
         {grid?.map((row, index) => (
           <div className="d-flex gap-2" key={index}>
             {row?.map((letter, index) => (
-              <Letter letter={letter} key={index} />
+              <Letter letter={letter} key={index}/>
             ))}
           </div>
         ))}

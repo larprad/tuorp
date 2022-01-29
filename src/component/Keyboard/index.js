@@ -8,8 +8,6 @@ const Keyboard = () => {
   const { keyPressed } = useKeyListener();
   const { deleteKey, valideKey, writeKey } = useGrid();
 
-  console.log(keyPressed)
-
   useEffect(() => {
     if (keyPressed === "Backspace") {
       deleteKey();
@@ -23,7 +21,6 @@ const Keyboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [keyPressed]);
 
-  console.log(keyPressed);
   return (
     <div className="d-flex justify-content-center my-5">
       <div className="d-flex flex-column gap-2">
