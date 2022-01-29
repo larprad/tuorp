@@ -1,5 +1,6 @@
 import { useGridContext } from "../state/GridContext";
-import { settings } from "../config/ini";
+import { authKeys, settings } from "../config/ini";
+import { authKey } from "../utils";
 
 export const useGrid = () => {
   const { grid, setGrid, activeRow, activeCol, setActiveCol, setActiveRow } =
@@ -22,7 +23,7 @@ export const useGrid = () => {
   };
 
   const writeKey = (keyCaps) => {
-    if (activeCol < settings.wordLength) {
+    if (activeCol < settings.wordLength && authKey(keyCaps, authKeys)) {
       grid[activeRow][activeCol] = keyCaps;
       setGrid([...grid]);
       setActiveCol(activeCol + 1);

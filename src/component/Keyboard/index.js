@@ -8,6 +8,8 @@ const Keyboard = () => {
   const { keyPressed } = useKeyListener();
   const { deleteKey, valideKey, writeKey } = useGrid();
 
+  console.log(keyPressed)
+
   useEffect(() => {
     if (keyPressed === "Backspace") {
       deleteKey();
