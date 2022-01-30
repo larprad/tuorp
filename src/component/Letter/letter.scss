@@ -2,7 +2,25 @@
 
 .tuorp-letter {
   border: 3px solid $light-grey;
+  transition: all 0.2s;
+  &--default {
+    background-color: transparent;
+  }
   &--filled {
     border-color: $white;
   }
+  &--perfect {
+    background-color: $green;
+    border-color: $green;
+  }
+  &--settled {
+    background-color: $grey;
+    border-color: $grey;
+  }
+  &--almost {
+    background-color: $yellow;
+    border-color: $yellow;
+  }
 }
+
+
