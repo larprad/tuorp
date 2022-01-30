@@ -2,4 +2,10 @@
 
 .tuorp-key {
   background-color: $very-light-grey;
+  &--found {
+    background-color: $green;
+  }
+  &--out {
+    background-color: $dark-grey;
+  }
 }

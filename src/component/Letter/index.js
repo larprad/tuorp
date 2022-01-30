@@ -6,7 +6,7 @@ import { wordToBeFound } from '../../config/ini';
 
 const Letter = ({ letter, index, row }) => {
   const [state, setState] = useState('');
-  const { activeRow } = useGridContext();
+  const { activeRow, setLetterOut, setLetterFound } = useGridContext();
 
   const keyClass = cn('tuorp-letter rounded d-flex justify-content-center align-items-center', {
     'turop-letter--default': state === 'default',
@@ -21,17 +21,19 @@ const Letter = ({ letter, index, row }) => {
       const letterToFind = wordToBeFound.split('')[index].toLowerCase();
       if (letter.toLowerCase() === letterToFind) {
         setState('perfect');
+        setLetterFound((prev) => [...prev, letter]);
       } else if (wordToBeFound.toLowerCase().includes(letter.toLowerCase())) {
         setState('almost');
       } else {
         setState('settled');
+        setLetterOut((prev) => [...prev, letter]);
       }
     };
 
     if (row < activeRow) {
       getLetterState(letter);
     }
-  }, [index, letter, activeRow, row]);
+  }, [index, letter, activeRow, row, setLetterFound, setLetterOut]);
 
   return (
     <div className={keyClass} style={{ width: '3.5rem', height: '3.5rem' }}>
