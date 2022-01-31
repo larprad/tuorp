@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useGridContext } from '../../state/GridContext';
 import './letter.scss';
 import { wordToBeFound } from '../../config/ini';
+import { pushIfNotExisting } from '../../utils';
 
 const Letter = ({ letter, index, row }) => {
   const [state, setState] = useState('');
@@ -21,12 +22,12 @@ const Letter = ({ letter, index, row }) => {
       const letterToFind = wordToBeFound.split('')[index].toLowerCase();
       if (letter.toLowerCase() === letterToFind) {
         setState('perfect');
-        setLetterFound((prev) => [...prev, letter]);
+        setLetterFound((prev) => pushIfNotExisting(letter, prev));
       } else if (wordToBeFound.toLowerCase().includes(letter.toLowerCase())) {
         setState('almost');
       } else {
         setState('settled');
-        setLetterOut((prev) => [...prev, letter]);
+        setLetterOut((prev) => pushIfNotExisting(letter, prev));
       }
     };
 
