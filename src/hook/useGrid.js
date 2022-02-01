@@ -1,28 +1,44 @@
-import { useCallback, useState } from "react";
 import { useGridContext } from "../state/GridContext";
-import { authKeys, initGrid, settings, wordToBeFound } from "../config/ini";
+import { authKeys, settings, wordToBeFound } from "../config/ini";
 import { authKey } from "../utils";
 
 export const useGrid = () => {
-  const { grid, setGrid, activeRow, activeCol, setActiveCol, setActiveRow } =
-    useGridContext();
+  const {
+    grid,
+    setGrid,
+    activeRow,
+    activeCol,
+    setActiveCol,
+    setActiveRow,
+    victory,
+    setVictory,
+    setLetterFound,
+    setLetterOut,
+  } = useGridContext();
 
   const currentWord = grid[activeRow].join("").toLowerCase();
-  const [victory, setVictory] = useState(false);
 
   const initGame = () => {
-    setGrid(initGrid);
+    setGrid([
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+      ["", "", "", "", ""],
+    ]);
     setActiveCol(0);
     setActiveRow(0);
     setVictory(0);
+    setLetterFound([]);
+    setLetterOut([]);
   };
 
-  const checkVictory = useCallback(() => {
+  const checkVictory = () => {
     if (currentWord === wordToBeFound.toLocaleLowerCase()) {
       setVictory(true);
-      console.log("Victory");
     }
-  }, [currentWord]);
+  };
 
   const deleteKey = () => {
     if (activeCol > 0) {

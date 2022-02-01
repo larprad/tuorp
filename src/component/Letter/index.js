@@ -7,7 +7,8 @@ import { pushIfNotExisting } from "../../utils";
 
 const Letter = ({ letter, index, row }) => {
   const [state, setState] = useState("");
-  const { activeRow, setLetterOut, setLetterFound } = useGridContext();
+  const { activeRow, setLetterOut, setLetterFound, grid, victory } =
+    useGridContext();
 
   const keyClass = cn(
     "tuorp-letter rounded d-flex justify-content-center align-items-center",
@@ -19,6 +20,13 @@ const Letter = ({ letter, index, row }) => {
       "tuorp-letter--filled": letter !== "",
     }
   );
+
+  useEffect(() => {
+    if (grid[(activeRow, index)] === "") {
+      console.log(grid);
+      setState("default");
+    }
+  }, [activeRow, grid, index, victory, letter]);
 
   useEffect(() => {
     const getLetterState = (letter) => {
