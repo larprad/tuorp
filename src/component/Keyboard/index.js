@@ -1,19 +1,19 @@
-import Key from '../Key';
-import { initKeyboard } from '../../config/ini';
-import { useKeyListener } from '../../hook/useKeyListener';
-import { useGrid } from '../../hook/useGrid';
-import { useEffect } from 'react';
+import Key from "../Key";
+import { initKeyboard } from "../../config/ini";
+import { useKeyListener } from "../../hook/useKeyListener";
+import { useGrid } from "../../hook/useGrid";
+import { useEffect } from "react";
 
 const Keyboard = () => {
   const { keyPressed } = useKeyListener();
   const { deleteKey, valideKey, writeKey } = useGrid();
 
   useEffect(() => {
-    if (keyPressed === 'Backspace') {
+    if (keyPressed === "Backspace") {
       deleteKey();
       return;
     }
-    if (keyPressed === 'Enter') {
+    if (keyPressed === "Enter") {
       valideKey();
       return;
     }
@@ -22,10 +22,10 @@ const Keyboard = () => {
   }, [keyPressed]);
 
   return (
-    <div className='d-flex justify-content-center my-5'>
-      <div className='d-flex flex-column gap-2'>
+    <div className="d-flex justify-content-center my-4">
+      <div className="d-flex flex-column gap-2">
         {initKeyboard.map((row, index) => (
-          <div className='d-flex gap-1 justify-content-center' key={index}>
+          <div className="d-flex gap-1 justify-content-center" key={index}>
             {row.map((key, index) => (
               <Key key={index} keyCaps={key} />
             ))}

@@ -1,32 +1,35 @@
-import cn from 'classnames';
-import { useEffect, useState } from 'react';
-import { useGridContext } from '../../state/GridContext';
-import './letter.scss';
-import { wordToBeFound } from '../../config/ini';
-import { pushIfNotExisting } from '../../utils';
+import cn from "classnames";
+import { useEffect, useState } from "react";
+import { useGridContext } from "../../state/GridContext";
+import "./letter.scss";
+import { wordToBeFound } from "../../config/ini";
+import { pushIfNotExisting } from "../../utils";
 
 const Letter = ({ letter, index, row }) => {
-  const [state, setState] = useState('');
+  const [state, setState] = useState("");
   const { activeRow, setLetterOut, setLetterFound } = useGridContext();
 
-  const keyClass = cn('tuorp-letter rounded d-flex justify-content-center align-items-center', {
-    'turop-letter--default': state === 'default',
-    'tuorp-letter--settled': state === 'settled',
-    'tuorp-letter--perfect': state === 'perfect',
-    'tuorp-letter--almost': state === 'almost',
-    'tuorp-letter--filled': letter !== '',
-  });
+  const keyClass = cn(
+    "tuorp-letter rounded d-flex justify-content-center align-items-center",
+    {
+      "turop-letter--default": state === "default",
+      "tuorp-letter--settled": state === "settled",
+      "tuorp-letter--perfect": state === "perfect",
+      "tuorp-letter--almost": state === "almost",
+      "tuorp-letter--filled": letter !== "",
+    }
+  );
 
   useEffect(() => {
     const getLetterState = (letter) => {
-      const letterToFind = wordToBeFound.split('')[index].toLowerCase();
+      const letterToFind = wordToBeFound.split("")[index].toLowerCase();
       if (letter.toLowerCase() === letterToFind) {
-        setState('perfect');
+        setState("perfect");
         setLetterFound((prev) => pushIfNotExisting(letter, prev));
       } else if (wordToBeFound.toLowerCase().includes(letter.toLowerCase())) {
-        setState('almost');
+        setState("almost");
       } else {
-        setState('settled');
+        setState("settled");
         setLetterOut((prev) => pushIfNotExisting(letter, prev));
       }
     };
@@ -37,8 +40,8 @@ const Letter = ({ letter, index, row }) => {
   }, [index, letter, activeRow, row, setLetterFound, setLetterOut]);
 
   return (
-    <div className={keyClass} style={{ width: '3.5rem', height: '3.5rem' }}>
-      <h3 className='m-0 fw-bold'>{letter.toUpperCase()}</h3>
+    <div className={keyClass} style={{ width: "4rem", height: "4rem" }}>
+      <h3 className="m-0 fw-bold">{letter.toUpperCase()}</h3>
     </div>
   );
 };

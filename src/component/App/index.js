@@ -4,10 +4,12 @@ import Keyboard from "../Keyboard";
 
 function App() {
   return (
-    <div className="min-vh-100 bg-dark text-white">
+    <div className="min-vh-100 bg-dark text-white d-flex flex-column">
       <Header />
-      <Grid />
-      <Keyboard />
+      <div className="flex-fill d-flex flex-column justify-content-between">
+        <Grid />
+        <Keyboard />
+      </div>
     </div>
   );
 }
