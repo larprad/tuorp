@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { useGridContext } from "../state/GridContext";
-import { authKeys, settings, wordToBeFound } from "../config/ini";
+import { authKeys, initGrid, settings, wordToBeFound } from "../config/ini";
 import { authKey } from "../utils";
 
 export const useGrid = () => {
@@ -9,6 +9,13 @@ export const useGrid = () => {
 
   const currentWord = grid[activeRow].join("").toLowerCase();
   const [victory, setVictory] = useState(false);
+
+  const initGame = () => {
+    setGrid(initGrid);
+    setActiveCol(0);
+    setActiveRow(0);
+    setVictory(0);
+  };
 
   const checkVictory = useCallback(() => {
     if (currentWord === wordToBeFound.toLocaleLowerCase()) {
@@ -45,5 +52,13 @@ export const useGrid = () => {
     }
   };
 
-  return { deleteKey, valideKey, writeKey, currentWord, checkVictory, victory };
+  return {
+    deleteKey,
+    valideKey,
+    writeKey,
+    currentWord,
+    checkVictory,
+    victory,
+    initGame,
+  };
 };
