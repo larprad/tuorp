@@ -22,6 +22,8 @@ const Key = ({ keyCaps }) => {
   const keyClass = cn("tuorp-key px-sm-3 py-3 px-2 rounded", {
     "tuorp-key--found": letterFound.includes(keyCaps.toLowerCase()),
     "tuorp-key--out": letterOut.includes(keyCaps.toLowerCase()),
+    "tuorp-key--enter mx-2 px-sm-4 px-3": keyCaps === "OK",
+    "tuorp-key--del mx-2 px-sm-4 px-3": keyCaps === "DEL",
   });
 
   return (

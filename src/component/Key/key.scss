@@ -14,4 +14,11 @@
   &--out {
     background-color: $dark-grey;
   }
+  &--enter {
+    border: 2px solid $green;
+  }
+
+  &--del {
+    border: 2px solid $yellow;
+  }
 }

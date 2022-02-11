@@ -10,7 +10,7 @@ export const initGrid = [
 export const initKeyboard = [
   ["A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P"],
   ["Q", "S", "D", "F", "G", "H", "J", "K", "L", "M"],
-  ["OK", "W", "X", "C", "V", "B", "N", "DEL"],
+  ["DEL", "W", "X", "C", "V", "B", "N", "OK"],
 ];
 
 export const settings = {
