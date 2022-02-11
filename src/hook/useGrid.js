@@ -1,6 +1,6 @@
 import { useGridContext } from "../state/GridContext";
 import { authKeys, settings, wordToBeFound } from "../config/ini";
-import { authKey } from "../utils";
+import { authKey, wordIsExisting } from "../utils";
 import { useEffect } from "react";
 
 export const useGrid = () => {
@@ -18,6 +18,7 @@ export const useGrid = () => {
     setGame,
     setModal,
     game,
+    setWarning,
   } = useGridContext();
 
   const currentWord = grid[activeRow]?.join("").toLowerCase();
@@ -59,8 +60,13 @@ export const useGrid = () => {
     if (activeCol === settings.wordLength) {
       checkVictory();
       if (activeRow < grid.length - 1) {
-        setActiveRow(activeRow + 1);
-        setActiveCol(0);
+        if (wordIsExisting(currentWord)) {
+          setActiveRow(activeRow + 1);
+          setActiveCol(0);
+        } else {
+          setWarning(true);
+          setTimeout(() => setWarning(false), 1000);
+        }
       } else {
         setActiveRow(activeRow + 1);
         setActiveCol(0);

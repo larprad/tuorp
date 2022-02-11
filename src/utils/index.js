@@ -19,7 +19,7 @@ export const pushIfNotExisting = (item, array) => {
 };
 
 export const wordIsExisting = (word) => {
-  return okWords.includes(word.toUpperCase());
+  return okWords.includes(word?.toUpperCase());
 };
 
 export const tuorp = () => {

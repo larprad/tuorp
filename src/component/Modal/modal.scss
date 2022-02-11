@@ -2,8 +2,19 @@
 
 .tuorp-modal {
   background-color: rgba(0, 0, 0, 0.8);
+  animation: show 0.5s;
 
   &__container {
     background-color: $dark-grey;
+  }
+
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
   }
 }

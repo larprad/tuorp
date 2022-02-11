@@ -17,6 +17,8 @@ const gridState = {
   setVictory: () => null,
   modal: false,
   setModal: () => null,
+  setWarning: () => null,
+  warning: false,
 };
 
 export const GridContext = createContext(gridState);

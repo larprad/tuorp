@@ -11,6 +11,7 @@ const GridProvider = ({ children }) => {
   const [victory, setVictory] = useState(false);
   const [game, setGame] = useState("init");
   const [modal, setModal] = useState(false);
+  const [warning, setWarning] = useState(false);
   const value = {
     grid,
     setGrid,
@@ -28,6 +29,8 @@ const GridProvider = ({ children }) => {
     setGame,
     modal,
     setModal,
+    setWarning,
+    warning,
   };
   return <GridContext.Provider value={value}>{children}</GridContext.Provider>;
 };
