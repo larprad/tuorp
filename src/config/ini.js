@@ -10,7 +10,7 @@ export const initGrid = [
 export const initKeyboard = [
   ["A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P"],
   ["Q", "S", "D", "F", "G", "H", "J", "K", "L", "M"],
-  ["VALIDER", "W", "X", "C", "V", "B", "N", "ANNULER"],
+  ["OK", "W", "X", "C", "V", "B", "N", "DEL"],
 ];
 
 export const settings = {
@@ -38,14 +38,14 @@ export const authKeys = [
   "K",
   "L",
   "M",
-  "VALIDER",
+  "OK",
   "W",
   "X",
   "C",
   "V",
   "B",
   "N",
-  "ANNULER",
+  "DEL",
   "ENTER",
   "Backspace",
 ];

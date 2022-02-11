@@ -8,11 +8,11 @@ const Key = ({ keyCaps }) => {
   const { letterFound, letterOut } = useGridContext();
 
   const handleKey = () => {
-    if (keyCaps === "ANNULER") {
+    if (keyCaps === "DEL") {
       deleteKey();
       return;
     }
-    if (keyCaps === "VALIDER") {
+    if (keyCaps === "OK") {
       valideKey();
       return;
     }

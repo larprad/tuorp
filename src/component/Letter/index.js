@@ -61,7 +61,7 @@ const Letter = ({ letter, index, row }) => {
   }, [game]);
 
   return (
-    <div className={keyClass} style={{ width: "4rem", height: "4rem" }}>
+    <div className={keyClass} style={{ width: "3.5rem", height: "3.5rem" }}>
       <h3 className="m-0 fw-bold">{letter.toUpperCase()}</h3>
     </div>
   );
