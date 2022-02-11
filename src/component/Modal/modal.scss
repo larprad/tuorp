@@ -1,0 +1,9 @@
+@import "../../assets/style/colors.scss";
+
+.tuorp-modal {
+  background-color: rgba(0, 0, 0, 0.8);
+
+  &__container {
+    background-color: $dark-grey;
+  }
+}

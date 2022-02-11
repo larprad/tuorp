@@ -16,12 +16,15 @@ export const useGrid = () => {
     setLetterFound,
     setLetterOut,
     setGame,
+    setModal,
+    game,
   } = useGridContext();
 
   const currentWord = grid[activeRow]?.join("").toLowerCase();
 
   const initGame = () => {
     setGame("init");
+    setModal(false);
     setGrid([
       ["", "", "", "", ""],
       ["", "", "", "", ""],
@@ -81,6 +84,14 @@ export const useGrid = () => {
   useEffect(() => {
     if (victory) {
       setGame("end");
+    }
+  });
+
+  useEffect(() => {
+    if (game === "end") {
+      setTimeout(() => {
+        setModal(true);
+      }, 500);
     }
   });
 

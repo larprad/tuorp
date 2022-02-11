@@ -1,21 +1,31 @@
 import { useGrid } from "../../hook/useGrid";
+import { useGridContext } from "../../state/GridContext";
+import { tuorp } from "../../utils";
 
-const Modal = ({ title }) => {
+import "./modal.scss";
+
+const Modal = () => {
   const { initGame } = useGrid();
+  const { victory } = useGridContext();
 
   return (
-    <div className="position-absolute bg-secondary top-0">
-      <h5>{title}</h5>
-      <button type="button" className="btn-close" aria-label="Close"></button>
-      <p>Victory</p>
-      <button
-        type="button"
-        className="btn btn-green"
-        data-bs-dismiss="modal"
-        onClick={initGame}
-      >
-        Encore !
-      </button>
+    <div className="tuorp-modal position-absolute left-0 top-0 w-100 h-100 d-flex align-items-center justify-content-center">
+      <div className="tuorp-modal__container rounded shadow p-4 text-center">
+        <h1 className="text-primary">{victory ? "Victoire !" : "Perdu !"} </h1>
+        <p className="text-center my-4">
+          {victory
+            ? "Bien joué, tu es super balaise ! "
+            : "Aïe, mais qu'est ce qu'il s'est passé !"}
+        </p>
+        <div className="d-flex gap-3 justifiy-content-center">
+          <button className="btn btn-primary flex-fill" onClick={initGame}>
+            Un autre !
+          </button>
+          <button className="btn btn-outline-primary flex-fill" onClick={tuorp}>
+            Prout
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
