@@ -7,7 +7,7 @@ import "./row.scss";
 const Row = ({ row, indexRow }) => {
   const { activeRow, warning } = useGridContext();
 
-  const rowClass = cn("d-flex gap-2", {
+  const rowClass = cn("d-flex gap-sm-2 gap-1", {
     "tuorp-row--anim": indexRow === activeRow && warning,
   });
 
