@@ -29,6 +29,8 @@ const Letter = ({ letter, index, row }) => {
   useEffect(() => {
     const getLetterState = (letter) => {
       const letterToFind = wordToBeFound.split("")[index].toLowerCase();
+      console.log(letter, "letter");
+      console.log(letterToFind, "tofind");
       if (letter.toLowerCase() === letterToFind) {
         setState("perfect");
         setLetterFound((prev) => pushIfNotExisting(letter, prev));
@@ -36,7 +38,8 @@ const Letter = ({ letter, index, row }) => {
         setState("almost");
       } else {
         setState("settled");
-        setLetterOut((prev) => pushIfNotExisting(letter, prev));
+        setLetterOut((prev) => pushIfNotExisting(letter.toLowerCase(), prev));
+        console.log("here!");
       }
     };
 
