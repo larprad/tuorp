@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/tuorp/static/css/main.d3fa9fd7.css",
+    "main.js": "/tuorp/static/js/main.baba7fdd.js",
+    "static/media/sf_2.mp3": "/tuorp/static/media/sf_2.c7e6dc993a823e51cc80.mp3",
+    "static/media/sf_4.mp3": "/tuorp/static/media/sf_4.7a35990a16b278457d1c.mp3",
+    "static/media/sf_5.mp3": "/tuorp/static/media/sf_5.3192a390c2f03d378961.mp3",
+    "static/media/sf_3.mp3": "/tuorp/static/media/sf_3.8d15587cd14a27ffaf5d.mp3",
+    "static/media/sf_1.mp3": "/tuorp/static/media/sf_1.3df97d87daeaa27be236.mp3",
+    "static/media/sf_6.mp3": "/tuorp/static/media/sf_6.a5cef03a75f520a840cf.mp3",
+    "index.html": "/tuorp/index.html",
+    "main.d3fa9fd7.css.map": "/tuorp/static/css/main.d3fa9fd7.css.map",
+    "main.baba7fdd.js.map": "/tuorp/static/js/main.baba7fdd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d3fa9fd7.css",
+    "static/js/main.baba7fdd.js"
+  ]
+}
