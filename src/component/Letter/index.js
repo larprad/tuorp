@@ -2,13 +2,18 @@ import cn from "classnames";
 import { useEffect, useState } from "react";
 import { useGridContext } from "../../state/GridContext";
 import "./letter.scss";
-import { wordToBeFound } from "../../config/ini";
 import { pushIfNotExisting } from "../../utils";
 
 const Letter = ({ letter, index, row }) => {
   const [state, setState] = useState("default");
-  const { activeRow, setLetterOut, setLetterFound, victory, game } =
-    useGridContext();
+  const {
+    activeRow,
+    setLetterOut,
+    setLetterFound,
+    victory,
+    game,
+    wordToBeFound,
+  } = useGridContext();
 
   const keyClass = cn(
     "tuorp-letter rounded d-flex justify-content-center align-items-center",
@@ -38,7 +43,16 @@ const Letter = ({ letter, index, row }) => {
     if (row < activeRow) {
       getLetterState(letter);
     }
-  }, [index, letter, activeRow, row, setLetterFound, setLetterOut, victory]);
+  }, [
+    index,
+    letter,
+    activeRow,
+    row,
+    setLetterFound,
+    setLetterOut,
+    victory,
+    wordToBeFound,
+  ]);
 
   useEffect(() => {
     if (game === "init") {

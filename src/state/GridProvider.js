@@ -12,6 +12,7 @@ const GridProvider = ({ children }) => {
   const [game, setGame] = useState("init");
   const [modal, setModal] = useState(false);
   const [warning, setWarning] = useState(false);
+  const [wordToBeFound, setWordToBeFound] = useState("prout");
   const value = {
     grid,
     setGrid,
@@ -31,6 +32,8 @@ const GridProvider = ({ children }) => {
     setModal,
     setWarning,
     warning,
+    wordToBeFound,
+    setWordToBeFound,
   };
   return <GridContext.Provider value={value}>{children}</GridContext.Provider>;
 };

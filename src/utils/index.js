@@ -28,3 +28,8 @@ export const tuorp = () => {
   const audio = new Audio(audios[randSix]);
   audio.play();
 };
+
+export const getRandomWord = () => {
+  const randIndex = Math.floor(Math.random() * okWords.length);
+  return okWords[randIndex];
+};

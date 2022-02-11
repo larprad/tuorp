@@ -19,6 +19,8 @@ const gridState = {
   setModal: () => null,
   setWarning: () => null,
   warning: false,
+  wordToBeFound: "",
+  setWordToBeFound: () => null,
 };
 
 export const GridContext = createContext(gridState);
