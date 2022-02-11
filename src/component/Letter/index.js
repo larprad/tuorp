@@ -6,27 +6,20 @@ import { wordToBeFound } from "../../config/ini";
 import { pushIfNotExisting } from "../../utils";
 
 const Letter = ({ letter, index, row }) => {
-  const [state, setState] = useState("");
-  const { activeRow, setLetterOut, setLetterFound, grid, victory } =
+  const [state, setState] = useState("default");
+  const { activeRow, setLetterOut, setLetterFound, victory, game } =
     useGridContext();
 
   const keyClass = cn(
     "tuorp-letter rounded d-flex justify-content-center align-items-center",
     {
-      "turop-letter--default": state === "default",
+      "turop-letter--default": state === "default" || letter === "",
       "tuorp-letter--settled": state === "settled",
       "tuorp-letter--perfect": state === "perfect",
       "tuorp-letter--almost": state === "almost",
       "tuorp-letter--filled": letter !== "",
     }
   );
-
-  useEffect(() => {
-    if (grid[(activeRow, index)] === "") {
-      console.log(grid);
-      setState("default");
-    }
-  }, [activeRow, grid, index, victory, letter]);
 
   useEffect(() => {
     const getLetterState = (letter) => {
@@ -45,7 +38,13 @@ const Letter = ({ letter, index, row }) => {
     if (row < activeRow) {
       getLetterState(letter);
     }
-  }, [index, letter, activeRow, row, setLetterFound, setLetterOut]);
+  }, [index, letter, activeRow, row, setLetterFound, setLetterOut, victory]);
+
+  useEffect(() => {
+    if (game === "init") {
+      setState("default");
+    }
+  }, [game]);
 
   return (
     <div className={keyClass} style={{ width: "4rem", height: "4rem" }}>

@@ -4,6 +4,7 @@ const gridState = {
   grid: [],
   activeRow: 0,
   activeCol: 0,
+  game: "",
   victory: false,
   letterOut: [],
   letterFound: [],
@@ -12,6 +13,7 @@ const gridState = {
   setActiveRow: () => null,
   setLetterFound: () => null,
   setLetterOut: () => null,
+  setGame: () => null,
   setVictory: () => null,
 };
 

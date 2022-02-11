@@ -9,6 +9,7 @@ const GridProvider = ({ children }) => {
   const [activeRow, setActiveRow] = useState(0);
   const [activeCol, setActiveCol] = useState(0);
   const [victory, setVictory] = useState(false);
+  const [game, setGame] = useState("init");
   const value = {
     grid,
     setGrid,
@@ -22,6 +23,8 @@ const GridProvider = ({ children }) => {
     setLetterOut,
     victory,
     setVictory,
+    game,
+    setGame,
   };
   return <GridContext.Provider value={value}>{children}</GridContext.Provider>;
 };

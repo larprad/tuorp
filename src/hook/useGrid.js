@@ -1,6 +1,7 @@
 import { useGridContext } from "../state/GridContext";
 import { authKeys, settings, wordToBeFound } from "../config/ini";
 import { authKey } from "../utils";
+import { useEffect } from "react";
 
 export const useGrid = () => {
   const {
@@ -14,11 +15,13 @@ export const useGrid = () => {
     setVictory,
     setLetterFound,
     setLetterOut,
+    setGame,
   } = useGridContext();
 
-  const currentWord = grid[activeRow].join("").toLowerCase();
+  const currentWord = grid[activeRow]?.join("").toLowerCase();
 
   const initGame = () => {
+    setGame("init");
     setGrid([
       ["", "", "", "", ""],
       ["", "", "", "", ""],
@@ -29,7 +32,7 @@ export const useGrid = () => {
     ]);
     setActiveCol(0);
     setActiveRow(0);
-    setVictory(0);
+    setVictory(false);
     setLetterFound([]);
     setLetterOut([]);
   };
@@ -37,6 +40,7 @@ export const useGrid = () => {
   const checkVictory = () => {
     if (currentWord === wordToBeFound.toLocaleLowerCase()) {
       setVictory(true);
+      setGame("end");
     }
   };
 
@@ -51,8 +55,14 @@ export const useGrid = () => {
   const valideKey = () => {
     if (activeCol === settings.wordLength) {
       checkVictory();
-      setActiveRow(activeRow + 1);
-      setActiveCol(0);
+      if (activeRow < grid.length - 1) {
+        setActiveRow(activeRow + 1);
+        setActiveCol(0);
+      } else {
+        setActiveRow(activeRow + 1);
+        setActiveCol(0);
+        setGame("end");
+      }
     }
   };
 
@@ -67,6 +77,12 @@ export const useGrid = () => {
       setActiveCol(activeCol + 1);
     }
   };
+
+  useEffect(() => {
+    if (victory) {
+      setGame("end");
+    }
+  });
 
   return {
     deleteKey,
