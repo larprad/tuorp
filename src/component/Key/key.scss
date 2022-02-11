@@ -2,6 +2,12 @@
 
 .tuorp-key {
   background-color: $very-light-grey;
+  &:hover {
+    background-color: $grey;
+  }
+  &:active {
+    background-color: $light-grey;
+  }
   &--found {
     background-color: $green;
   }
