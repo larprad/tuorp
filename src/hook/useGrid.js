@@ -47,7 +47,6 @@ export const useGrid = () => {
     setVictory(false);
     setLetterFound([]);
     setLetterOut([]);
-    //setWordToBeFound(getRandomWord());
   };
 
   const checkVictory = () => {

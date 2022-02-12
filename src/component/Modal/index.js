@@ -13,7 +13,8 @@ const Modal = () => {
 
   const onOther = () => {
     const id = getRandomWordIndex();
-    navigate("/tuorp/" + id);
+    const path = "/tuorp/" + id;
+    navigate(path);
     initGame(id);
   };
 
