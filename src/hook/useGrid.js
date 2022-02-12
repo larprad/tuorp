@@ -1,7 +1,6 @@
 import { useGridContext } from "../state/GridContext";
 import { authKeys, settings } from "../config/ini";
 import { authKey, wordIsExisting } from "../utils";
-import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { okWords } from "../config/words";
 
@@ -27,10 +26,9 @@ export const useGrid = () => {
 
   const currentWord = grid[activeRow]?.join("").toLowerCase();
 
-  const { id } = useParams();
-
-  const initGame = () => {
+  const initGame = (id) => {
     if (parseInt(id) > 0 && parseInt(id) < 6025) {
+      console.log(parseInt(id));
       setWordToBeFound(okWords[parseInt(id)]);
     } else {
       setWordToBeFound("prout");

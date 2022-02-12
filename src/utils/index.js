@@ -29,7 +29,13 @@ export const tuorp = () => {
   audio.play();
 };
 
-export const getRandomWord = () => {
+export const getRandomWordIndex = () => {
   const randIndex = Math.floor(Math.random() * okWords.length);
-  return okWords[randIndex];
+  return randIndex;
+};
+
+export const copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text).then(function (err) {
+    console.error("Async: Could not copy text: ", err);
+  });
 };

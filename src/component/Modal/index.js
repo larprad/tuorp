@@ -1,12 +1,29 @@
+import { useParams, useNavigate } from "react-router-dom";
 import { useGrid } from "../../hook/useGrid";
 import { useGridContext } from "../../state/GridContext";
-import { tuorp } from "../../utils";
+import { tuorp, copyToClipboard, getRandomWordIndex } from "../../utils";
 
 import "./modal.scss";
 
 const Modal = () => {
   const { initGame } = useGrid();
-  const { victory, wordToBeFound } = useGridContext();
+  const { victory, wordToBeFound, activeCol } = useGridContext();
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const onOther = () => {
+    const id = getRandomWordIndex();
+    navigate("/" + id);
+    initGame(id);
+  };
+
+  const onShare = () => {
+    const textToPaste = victory
+      ? `✨ Gagné en ${activeCol + 1} coups!`
+      : "💀 Un echec lamentable";
+
+    copyToClipboard(textToPaste + " 👉https://larprad.github.io/tuorp/" + id);
+  };
 
   return (
     <div className="tuorp-modal position-absolute left-0 top-0 w-100 h-100 d-flex align-items-center justify-content-center">
@@ -25,8 +42,17 @@ const Modal = () => {
             </h3>
           </div>
         )}
+        <div className="my-4">
+          <button
+            className="btn btn-outline-secondary flex-fill"
+            onClick={onShare}
+          >
+            📝 Partager le résultat
+          </button>
+        </div>
+
         <div className="d-flex gap-3 justifiy-content-center">
-          <button className="btn btn-primary flex-fill" onClick={initGame}>
+          <button className="btn btn-primary flex-fill" onClick={onOther}>
             Un autre !
           </button>
           <button className="btn btn-outline-primary flex-fill" onClick={tuorp}>
