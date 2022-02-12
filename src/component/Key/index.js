@@ -19,8 +19,6 @@ const Key = ({ keyCaps }) => {
     writeKey(keyCaps);
   };
 
-  console.log(letterOut, "letter out");
-
   const keyClass = cn("tuorp-key px-sm-3 py-3 px-2 rounded", {
     "tuorp-key--found": letterFound.includes(keyCaps.toLowerCase()),
     "tuorp-key--out": letterOut.includes(keyCaps.toLowerCase()),

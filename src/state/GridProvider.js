@@ -12,7 +12,7 @@ const GridProvider = ({ children }) => {
   const [game, setGame] = useState("init");
   const [modal, setModal] = useState(false);
   const [warning, setWarning] = useState(false);
-  const [wordToBeFound, setWordToBeFound] = useState("prout");
+  const [wordToBeFound, setWordToBeFound] = useState("");
   const value = {
     grid,
     setGrid,

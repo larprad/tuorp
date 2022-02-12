@@ -22,10 +22,7 @@ const Keyboard = () => {
   }, [keyPressed]);
 
   return (
-    <div
-      className="d-flex justify-content-center mb-5 mt-1"
-      style={{ zIndex: 100 }}
-    >
+    <div className="d-flex justify-content-center mb-5 mt-1">
       <div className="d-flex flex-column gap-2">
         {initKeyboard.map((row, index) => (
           <div className="d-flex gap-1 justify-content-center" key={index}>

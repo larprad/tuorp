@@ -1,7 +1,9 @@
 import { useGridContext } from "../state/GridContext";
 import { authKeys, settings } from "../config/ini";
-import { authKey, wordIsExisting, getRandomWord } from "../utils";
+import { authKey, wordIsExisting } from "../utils";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { okWords } from "../config/words";
 
 export const useGrid = () => {
   const {
@@ -25,7 +27,14 @@ export const useGrid = () => {
 
   const currentWord = grid[activeRow]?.join("").toLowerCase();
 
+  const { id } = useParams();
+
   const initGame = () => {
+    if (parseInt(id) > 0 && parseInt(id) < 6025) {
+      setWordToBeFound(okWords[parseInt(id)]);
+    } else {
+      setWordToBeFound("prout");
+    }
     setGame("init");
     setModal(false);
     setGrid([
@@ -41,7 +50,7 @@ export const useGrid = () => {
     setVictory(false);
     setLetterFound([]);
     setLetterOut([]);
-    setWordToBeFound(getRandomWord());
+    //setWordToBeFound(getRandomWord());
   };
 
   const checkVictory = () => {
