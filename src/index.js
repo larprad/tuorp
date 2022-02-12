@@ -11,8 +11,8 @@ ReactDOM.render(
     <BrowserRouter>
       <GridProvider>
         <Routes>
-          <Route path="/:id" element={<App />} />
-          <Route path="/" element={<App />} />
+          <Route path="/tuorp/:id" element={<App />} />
+          <Route path="/tuorp" element={<App />} />
         </Routes>
       </GridProvider>
     </BrowserRouter>

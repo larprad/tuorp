@@ -13,16 +13,16 @@ const Modal = () => {
 
   const onOther = () => {
     const id = getRandomWordIndex();
-    navigate("/" + id);
+    navigate("/tuorp/" + id);
     initGame(id);
   };
 
   const onShare = () => {
     const textToPaste = victory
-      ? `✨ Gagné en ${activeCol + 1} coups!`
+      ? `✨ Gagné en ${activeCol + 1} coups !`
       : "💀 Un echec lamentable";
 
-    copyToClipboard(textToPaste + " 👉https://larprad.github.io/tuorp/" + id);
+    copyToClipboard(textToPaste + " 👉 https://larprad.github.io/tuorp/" + id);
   };
 
   return (

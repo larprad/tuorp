@@ -35,7 +35,12 @@ export const getRandomWordIndex = () => {
 };
 
 export const copyToClipboard = (text) => {
-  navigator.clipboard.writeText(text).then(function (err) {
-    console.error("Async: Could not copy text: ", err);
-  });
+  navigator.clipboard.writeText(text).then(
+    function () {
+      console.info("Copying to clipboard was successful!");
+    },
+    function (err) {
+      console.error("Could not copy text: ", err);
+    }
+  );
 };

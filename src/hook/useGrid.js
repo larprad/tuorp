@@ -28,7 +28,6 @@ export const useGrid = () => {
 
   const initGame = (id) => {
     if (parseInt(id) > 0 && parseInt(id) < 6025) {
-      console.log(parseInt(id));
       setWordToBeFound(okWords[parseInt(id)]);
     } else {
       setWordToBeFound("prout");
