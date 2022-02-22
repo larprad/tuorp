@@ -7,7 +7,7 @@ import "./modal.scss";
 
 const Modal = () => {
   const { initGame } = useGrid();
-  const { victory, wordToBeFound, activeCol } = useGridContext();
+  const { victory, wordToBeFound, activeRow } = useGridContext();
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const Modal = () => {
 
   const onShare = () => {
     const textToPaste = victory
-      ? `✨ Gagné en ${activeCol + 1} coups !`
+      ? `✨ Gagné en ${activeRow} coups !`
       : "💀 Un echec lamentable";
 
     copyToClipboard(textToPaste + " 👉 https://larprad.github.io/tuorp/" + id);
